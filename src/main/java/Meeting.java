@@ -1,4 +1,4 @@
-public class Meeting extends Task {
+class Meeting extends Task {
     protected String topic;
     protected String project;
     protected String start;
@@ -24,6 +24,9 @@ public class Meeting extends Task {
 
     @Override
     public boolean matches(String query) {
+        if (query == null || query.isEmpty()) {
+            return false;
+        }
         return topic.contains(query) || project.contains(query);
     }
 }

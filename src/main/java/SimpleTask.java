@@ -1,4 +1,4 @@
-public class SimpleTask extends Task {
+class SimpleTask extends Task {
     protected String title;
 
     public SimpleTask(int id, String title) {
@@ -12,6 +12,9 @@ public class SimpleTask extends Task {
 
     @Override
     public boolean matches(String query) {
+        if (query == null || query.isEmpty()) {
+            return false;
+        }
         return title.contains(query);
     }
 }

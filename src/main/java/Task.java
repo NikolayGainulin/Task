@@ -1,6 +1,4 @@
-import java.util.Objects;
-
-public class Task {
+abstract class Task {
     protected int id;
 
     public Task(int id) {
@@ -11,20 +9,5 @@ public class Task {
         return id;
     }
 
-    public boolean matches(String query) {
-        return false;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Task task = (Task) o;
-        return id == task.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
+    public abstract boolean matches(String query);
 }
